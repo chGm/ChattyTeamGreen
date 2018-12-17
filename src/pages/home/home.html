@@ -1,14 +1,21 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>
+            Chat of Nature
+        </ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+    <div class="messages">
+        <div class="msg-sent">
+            <div class="username">Username</div>
+            <div class="content">Message</div>
+        </div>
+        <div class="msg-received">
+            <div class="username">Other username</div>
+            <div class="content">Other message</div>
+        </div>
+    </div>
+    <ion-input placeholder="Start typing here..." clearInput></ion-input>
 </ion-content>

@@ -1,3 +1,41 @@
 page-home {
+  .messages {
+    display: flex;
+    flex-direction: column;
 
+    .msg-sent {
+      align-self: flex-end;
+
+      .username {
+        text-align: right;
+      }
+      .content {
+        background-color: blue;
+      }
+    }
+
+    .msg-received {
+      align-self: flex-start;
+      .content {
+        background-color: red;
+      }
+    }
+
+    .username {
+
+    }
+
+    .content {
+      border-radius: 16px;
+      padding: 16px 32px;
+    }
+  }
+
+  ion-input {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: lightgray;
+    padding: 0 16px;
+  }
 }
