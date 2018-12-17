@@ -1,24 +1,26 @@
 <ion-header>
-  <ion-navbar> <ion-title> Chat of Nature </ion-title> </ion-navbar>
+    <ion-navbar>
+        <ion-title> Chat of Nature</ion-title>
+    </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <div class="messages" *ngFor="let message of messages">
-    <div class="msg-received" *ngIf="!message.sent">
-      <div class="username">{{ message.username }}</div>
-      <div class="content">{{ message.message }}</div>
+<ion-content padding [class.buzzing]="isBuzzing">
+    <div class="messages" *ngFor="let message of messages">
+        <div class="msg-received" *ngIf="!message.sent">
+            <div class="username">{{ message.username }}</div>
+            <div class="content">{{ message.message }}</div>
+        </div>
+        <div class="msg-sent" *ngIf="message.sent">
+            <div class="username">{{ message.username }}</div>
+            <div class="content">{{ message.message }}</div>
+        </div>
     </div>
-    <div class="msg-sent" *ngIf="message.sent">
-      <div class="username">{{ message.username }}</div>
-      <div class="content">{{ message.message }}</div>
-    </div>
-  </div>
-  <div class="footer">
-    <ion-input
-      [(ngModel)]="myMessage"
-      placeholder="Start typing here..."
-      clearInput
-    ></ion-input>
-    <button ion-button full (click)="sendMessage()">Send!</button>
-  </div>
 </ion-content>
+<div class="footer">
+    <ion-input
+            [(ngModel)]="myMessage"
+            placeholder="Start typing here..."
+            clearInput
+            (keyup.enter)="sendMessage()"
+    ></ion-input>
+</div>
