@@ -32,7 +32,7 @@ page-home {
   }
 
   ion-input {
-    position: absolute;
+    position: absolute !important;
     bottom: 0;
     left: 0;
     background-color: lightgray;
