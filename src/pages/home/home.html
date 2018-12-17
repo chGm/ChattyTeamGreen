@@ -3,21 +3,22 @@
 </ion-header>
 
 <ion-content padding>
-  <div class="messages">
-    <div class="msg-sent">
-      <div class="username">Username</div>
-      <div class="content">Message</div>
+  <div class="messages" *ngFor="let message of messages">
+    <div class="msg-received" *ngIf="!message.sent">
+      <div class="username">{{ message.username }}</div>
+      <div class="content">{{ message.message }}</div>
     </div>
-    <div *ngFor="let message of messages">
-      <div class="msg-received" *ngIf="!message.sent">
-        <div class="username">{{ message.username }}</div>
-        <div class="content">{{ message.message }}</div>
-      </div>
-      <div class="msg-sent" *ngIf="message.sent">
-        <div class="username">{{ message.username }}</div>
-        <div class="content">{{ message.message }}</div>
-      </div>
+    <div class="msg-sent" *ngIf="message.sent">
+      <div class="username">{{ message.username }}</div>
+      <div class="content">{{ message.message }}</div>
     </div>
   </div>
-  <ion-input placeholder="Start typing here..." clearInput></ion-input>
+  <div class="footer">
+    <ion-input
+      [(ngModel)]="myMessage"
+      placeholder="Start typing here..."
+      clearInput
+    ></ion-input>
+    <button ion-button full (click)="sendMessage()">Send!</button>
+  </div>
 </ion-content>

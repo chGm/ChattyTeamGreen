@@ -22,7 +22,6 @@ page-home {
     }
 
     .username {
-
     }
 
     .content {
@@ -31,10 +30,11 @@ page-home {
     }
   }
 
-  ion-input {
+  .footer {
     position: absolute !important;
     bottom: 0;
     left: 0;
+    right: 0;
     background-color: lightgray;
     padding: 0 16px;
   }

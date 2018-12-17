@@ -9,7 +9,8 @@ import * as io from 'socket.io-client';
 export class HomePage {
   socket: any;
   username: string;
-  messages: [Message];
+  messages: Message[] = [];
+  myMessage: string;
   constructor(public navCtrl: NavController) {}
 
   ionViewDidLoad() {
@@ -32,8 +33,11 @@ export class HomePage {
     // TODO: fill method
   }
 
-  sendMessage(message: string) {
-    this.socket.emit('msg', message, this.username);
+  sendMessage() {
+    if (this.myMessage === '') return;
+    this.socket.emit('msg', this.myMessage, this.username);
+    this.messages.push(new Message(this.username, this.myMessage, true));
+    this.myMessage = '';
   }
 }
 
